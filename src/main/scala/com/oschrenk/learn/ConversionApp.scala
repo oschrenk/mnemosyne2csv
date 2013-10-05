@@ -3,6 +3,7 @@ package com.oschrenk.learn
 import java.io.File
 import java.io.FileWriter
 import java.io.PrintWriter
+import scala.util.Random
 
 object ConversionApp extends App{
 
@@ -30,6 +31,9 @@ object ConversionApp extends App{
         .reverse
         .map(item =>
           (item._3, item._2))
+    )
+    .mapValues(
+      itemList => Random.shuffle(itemList)
     )
 
   vocabularyByLecture.foreach(
